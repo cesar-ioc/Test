@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://naltatis.github.io/jade-syntax-docs/#id-classes -->
+<html class="wf-droidsansmono-n4-active wf-ubuntu-n7-active wf-ubuntu-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Jade Template Syntax Documentation by Example</title><link href="./test.pug_files/global.min.css" rel="stylesheet" type="text/css"><meta name="description" content="An interative Syntax Documentation for the Jade Templating Engine"><link rel="author" href="https://plus.google.com/u/0/113306279128990179378"><script type="text/javascript" async="" src="./test.pug_files/ga.js.download"></script><script src="./test.pug_files/webfont.js.download" type="text/javascript" async=""></script><link rel="stylesheet" href="./test.pug_files/css" media="all"><script>WebFontConfig = {
+  google: { families: [ 'Droid+Sans+Mono::latin', 'Ubuntu:400,700:latin' ] }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();</script></head><body data-spy="scroll" data-target=".subnav" data-offset="150"><a href="https://github.com/naltatis/jade-syntax-docs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./test.pug_files/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a><div class="container"><header class="jumbotron subhead"><h1>Jade Syntax Documentation<small> by example</small></h1><p class="lead">This <strong>interactive</strong> documentation illustrates the most important features of the Jade templating language.<br>
+You can play around with the examples and watch the html output in real time.<br>
+For more detailed explanations visit the&nbsp;<a href="http://jade-lang.com/reference/">official documentation.</a></p><div class="subnav subnav-fixed"><ul class="nav nav-pills"><li class=""><a href="https://naltatis.github.io/jade-syntax-docs/#basics">Basics</a></li><li class="active"><a href="https://naltatis.github.io/jade-syntax-docs/#id-classes">id, classes</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#nesting">Nesting</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#text">Text</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#variables">Variables</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#escaping">Escaping</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#attributes">Attributes</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#comments">Comments</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#if">if, unless</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#for">for, each</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#case">case</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#mixin">mixin</a></li><li><a href="https://naltatis.github.io/jade-syntax-docs/#about">about</a></li></ul></div></header><section id="basics"><div class="page-header"><h2>Basics</h2></div><div class="row annotate"><div class="span6"><div class="jadeLabel"></div><textarea class="size7 jade">doctype html
+html
+  head
+    title my jade template
+  body
+    h1 Hello #{name}</textarea><textarea class="size1 json">{"name": "Bob"}</textarea><div class="dataLabel"></div></div><div class="span6 right"><div class="htmlLabel"></div><textarea readonly="" class="size9 html"></textarea></div></div></section><section id="id-classes"><div class="page-header"><h2>id &amp; classes</h2></div><div class="row"><div class="span6"><textarea class="size5 jade">#content
+  .block
+    input#bar.foo1.foo2</textarea></div><div class="span6 right"><textarea readonly="" class="size5 html"></textarea></div></div></section><section id="nesting"><div class="page-header"><h2>Nesting</h2></div><div class="row"><div class="span6"><textarea class="size5 jade">ul#books
+  li
+    a(href="#book-a") Book A
+  li
+    a(href="#book-b") Book B</textarea></div><div class="span6 right"><textarea readonly="" class="size5 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size4 jade">ul#books
+  li: a(href="#book-a") Book A
+  li: a(href="#book-b") Book B</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div></section><section id="text"><div class="page-header"><h2>Text</h2></div><div class="row"><div class="span6"><textarea class="size3 jade">h1 foo
+h2= book.name
+h3 "#{book.name}" for #{book.price} €</textarea><textarea class="size1 json">{"book": {"name": "Hello", "price": 12.99}}</textarea></div><div class="span6 right"><textarea readonly="" class="size5 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size4 jade">p
+  | foo bar
+  | hello world</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size4 jade">p.
+  foo bar
+  hello world</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div></section><section id="variables"><div class="page-header"><h2>Variables</h2></div><div class="row"><div class="span6"><textarea class="size2 jade">- var foo = "hello world"
+h1= foo</textarea></div><div class="span6 right"><textarea readonly="" class="size2 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size2 jade">- var foo = book.name + " world"
+h1= foo</textarea><textarea class="size1 json">{"book": {"name": "hello"}}</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div></section><section id="escaping"><div class="page-header"><h2>Escaping</h2></div><div class="row"><div class="span6"><textarea class="size1 jade">li Hello &lt;em&gt;World&lt;/em&gt;</textarea></div><div class="span6 right"><textarea readonly="" class="size1 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size2 jade">li= name
+li!= name</textarea><textarea class="size1 json">{"name": "Hello &lt;em&gt;World&lt;/em&gt;"}</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size2 jade">li Say #{name}
+li Say !{name}</textarea><textarea class="size1 json">{"name": "Hello &lt;em&gt;World&lt;/em&gt;"}</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div></section><section id="attributes"><div class="page-header"><h2>Attributes</h2></div><div class="row"><div class="span6"><textarea class="size1 jade">input(type="text", placeholder="your name")</textarea></div><div class="span6 right"><textarea readonly="" class="size1 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size1 jade">input(type=type, value='Hello #{name}')</textarea><textarea class="size1 json">{"type": "text", "name": "Bob"}</textarea></div><div class="span6 right"><textarea readonly="" class="size3 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size1 jade">input(checked=true, disabled=false)</textarea></div><div class="span6 right"><textarea readonly="" class="size1 html"></textarea></div></div></section><section id="comments"><div class="page-header"><h2>Comments</h2></div><div class="row"><div class="span6"><textarea class="size2 jade">// single line comment
+//- invisible single line comment</textarea></div><div class="span6 right"><textarea readonly="" class="size2 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size4 jade">// block comment
+  h1 hello world
+//- invisible block comment
+  h2 how are you?</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size3 jade">&lt;!--[if IE 8]&gt;
+script(src='/ie.js')
+&lt;![endif]--&gt;</textarea></div><div class="span6 right"><textarea readonly="" class="size2 html"></textarea></div></div></section><section id="if"><div class="page-header"><h2>if &amp; unless</h2></div><div class="row"><div class="span6"><textarea class="size4 jade">if name == "Bob"
+  h1 Hello Bob
+else
+  h1 My name is #{name}</textarea><textarea class="size1 json">{"name": "Bob"}</textarea></div><div class="span6 right"><textarea readonly="" class="size6 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size2 jade">unless errors
+  p no errors</textarea><textarea class="size1 json">{"errors": false}</textarea></div><div class="span6 right"><textarea readonly="" class="size4 html"></textarea></div></div></section><section id="for"><div class="page-header"><h2>for &amp; each</h2></div><div class="row"><div class="span6"><textarea class="size3 jade">select
+  each book, i in books
+    option(value=i) Book #{book}</textarea><textarea class="size1 json">{"books": ["A", "B", "C"]}</textarea></div><div class="span6 right"><textarea readonly="" class="size5 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size5 jade">ul
+  for book in books
+    li= book
+  else
+    li sorry, no books!</textarea><textarea class="size1 json">{"books": []}</textarea></div><div class="span6 right"><textarea readonly="" class="size7 html"></textarea></div></div></section><section id="case"><div class="page-header"><h2>case</h2></div><div class="row"><div class="span6"><textarea class="size7 jade">case name
+  when "Bob"
+    p Hi Bob!
+  when "Alice"
+    p Howdy Alice!
+  default
+    p Hello #{name}!</textarea><textarea class="size1 json">{"name": "Bob"}</textarea></div><div class="span6 right"><textarea readonly="" class="size9 html"></textarea></div></div></section><section id="mixin"><div class="page-header"><h2>mixin</h2></div><div class="row"><div class="span6"><textarea class="size6 jade">mixin book(name, price)
+  li #{name} for #{price} €
+  
+ul#books
+  +book("Book A", 12.99)
+  +book("Book B", 5.99)</textarea></div><div class="span6 right"><textarea readonly="" class="size6 html"></textarea></div></div><hr><div class="row"><div class="span6"><textarea class="size6 jade">mixin book(name)
+  div&amp;attributes(attributes)= name
+  
++book("Book A")#first
++book("Book B")(title="book b")
++book("Book C").last</textarea></div><div class="span6 right"><textarea readonly="" class="size6 html"></textarea></div></div></section></div><footer id="about"><p>by <strong>naltatis</strong>&nbsp;</p><p>follow me on&nbsp;<a href="https://github.com/naltatis" title="naltatis on github">github</a> and&nbsp;<a href="https://twitter.com/naltatis" title="naltatis on twitter">twitter</a></p><p><a class="FlattrButton"><iframe src="./test.pug_files/saved_resource.html" title="Flattr" height="20" width="110" style="border-width: 0px;"></iframe><script id="fb7pp5j">(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//api.flattr.com/button/view/?uid=tatilans&button=compact&url=https%3A%2F%2Fgithub.com%2Fnaltatis%2Fjade-syntax-docs';f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fb7pp5j');</script></a></p></footer><script src="./test.pug_files/global.min.js.download" async=""></script><script type="text/javascript">var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-33399084-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>
